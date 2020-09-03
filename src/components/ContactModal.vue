@@ -1,42 +1,44 @@
 <template>
     <div class="contact-modal">
 
-        <div class="modal" v-show="showContactModal">
-            <div class="modal-wrapper">
+        <transition name="fade">
+            <div class="modal" v-show="showContactModal">
+                <div class="modal-wrapper">
 
-                <div class="modal-header">
-                    <p class="modal__title">New Contact: </p>
-                    <button class="modal-close" 
-                            @click="closeContactModal()">
-                    ❌
-                    </button>
-                </div>
-
-                <div class="modal-body">
-                    <img class="modal__icon" src="../assets/profile-icon.png">
-
-                    <div class="modal-body-wrapper">
-                        <input class="modal__input" 
-                                type="text" 
-                                placeholder="First Name" 
-                                v-model="contactTitle">
-
-                        <input class="modal__input" 
-                                type="number" 
-                                placeholder="Add phone"
-                                v-model="contactNumber">
+                    <div class="modal-header">
+                        <p class="modal__title">New Contact: </p>
+                        <button class="modal-close" 
+                                @click="closeContactModal()">
+                        ❌
+                        </button>
                     </div>
-                </div>
 
-                <div class="modal-footer">
-                    <button class="submit-btn" 
-                            @click="createContact()">
-                    Create Contact
-                    </button>
-                </div>
+                    <div class="modal-body">
+                        <img class="modal__icon" src="../assets/profile-icon.png">
 
-                </div>
-        </div>
+                        <div class="modal-body-wrapper">
+                            <input class="modal__input" 
+                                    type="text" 
+                                    placeholder="First Name" 
+                                    v-model="contactTitle">
+
+                            <input class="modal__input" 
+                                    type="number" 
+                                    placeholder="Add phone"
+                                    v-model="contactNumber">
+                        </div>
+                    </div>
+
+                    <div class="modal-footer">
+                        <button class="submit-btn" 
+                                @click="createContact()">
+                        Create Contact
+                        </button>
+                    </div>
+
+                    </div>
+            </div>
+         </transition>
 
         <div class="contacts-menu">
             <button class="menu__btn" 
@@ -185,5 +187,13 @@ export default {
     border: none;
     outline: none;
     cursor: pointer;
+}
+
+/* Animation for transition */
+.fade-enter-active, .fade-leave-active {
+  transition: opacity .5s;
+}
+.fade-enter, .fade-leave-to /* .fade-leave-active до версии 2.1.8 */ {
+  opacity: 0;
 }
 </style>
