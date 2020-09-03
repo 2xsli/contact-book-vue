@@ -7,7 +7,7 @@
                 <div class="modal-header">
                     <p class="modal__title">New Contact: </p>
                     <button class="modal-close" 
-                            @click="modelContactClose()">
+                            @click="closeContactModal()">
                     ❌
                     </button>
                 </div>
@@ -40,7 +40,7 @@
 
         <div class="contacts-menu">
             <button class="menu__btn" 
-                    @click="newContactModal()">
+                    @click="openContactModal()">
             ➕
             </button>
         </div>
@@ -49,12 +49,19 @@
 </template>
 
 <script>
+import { mapState } from 'vuex'
+
 export default {
     name: 'ContactModal',
+
+    computed: mapState(['contacts']),
 
     data() {
         return {
             showContactModal: false,
+            contactTitle: '',
+            contactNumber: '',
+            idContact: 7,
         }
     },
 
@@ -75,11 +82,11 @@ export default {
             this.showContactModal = false;
         },
 
-        newContactModal() {
+        openContactModal() {
             this.showContactModal = true;
         },
 
-        modelContactClose() {
+        closeContactModal() {
             this.showContactModal = false;
         },
     },
@@ -160,6 +167,21 @@ export default {
     margin-top: 30px;
     padding: 30px;
     border-radius: 40px;
+    border: none;
+    outline: none;
+    cursor: pointer;
+}
+
+.contacts-menu {
+    margin: 30px 0;
+    display: flex;
+    justify-content: space-around;
+}
+
+.menu__btn {
+    padding: 15px;
+    background-color: #34495E;
+    border-radius: 30px;
     border: none;
     outline: none;
     cursor: pointer;

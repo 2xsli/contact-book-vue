@@ -66,25 +66,6 @@ export default {
     },
 
     methods: {
-        // createContact() {
-        //     if (this.contactTitle.trim() !== '' && this.contactNumber.trim() !== '') {
-        //         this.contacts.push({
-        //             id: this.idContact,
-        //             title: this.contactTitle,
-        //             phoneNumber: this.contactNumber,
-        //             editing: false
-        //         });
-        //     } 
-
-        //     this.contactTitle = '',
-        //     this.contactNumber = '',
-        //     this.idContact++
-        //     this.showContactModal = false;
-        // },
-
-// opening modal window
-        
-
         deleteContact(index) {
             this.contacts.splice(index, 1);
         },
@@ -165,21 +146,6 @@ export default {
     outline: none;
     cursor: pointer;
     transform: scale(1.3);
-}
-
-.contacts-menu {
-    margin: 30px 0;
-    display: flex;
-    justify-content: space-around;
-}
-
-.menu__btn {
-    padding: 15px;
-    background-color: #34495E;
-    border-radius: 30px;
-    border: none;
-    outline: none;
-    cursor: pointer;
 }
 
 /* delete input[number] arrows */

@@ -14,9 +14,6 @@ const store = new Vuex.Store({
             {id: 5, title: 'Mario Italy', phoneNumber: '8 808 892 13-88', editing: false},
             {id: 6, title: 'Mario Italy', phoneNumber: '8 808 892 13-88', editing: false},
         ],
-        contactTitle: '',
-        contactNumber: '',
-        idContact: 7,
     },
     
     mutations: {

@@ -4,7 +4,8 @@
 
       <input class="search" 
              type="text" 
-             placeholder="Search">
+             placeholder="Search" 
+             v-model="searchLine">
 
     </div>
   </div>
