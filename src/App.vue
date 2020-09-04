@@ -1,41 +1,29 @@
 <template>
   <div id="app">
     <div class="container">
-      <h1 class="title">{{"Contacts: " + contacts.length}}</h1>
-      <Search />
-      <Profile />
-      <Contacts />
+      <router-view></router-view>
+      <!-- <ContactBook />
+      <ContactInfo /> -->
     </div>
   </div>
 </template>
 
 <script>
-import Search from './components/Search.vue'
-import Profile from './components/Profile.vue'
-import Contacts from './components/Contacts.vue'
-
-import { mapState } from 'vuex'
+// import ContactBook from './components/ContactBook.vue'
+// import ContactInfo from './components/ContactInfo'
 
 export default {
   name: 'App',
 
   components: {
-    Search,
-    Profile,
-    Contacts,
+    // ContactBook,
+    // ContactInfo
   },
-
-  computed: mapState(['contacts']),
-  
 }
+
 </script>
 
 <style>
-#app {
-  width: 600px;
-  border: 3px solid #41B883;
-  margin: 40px auto;
-}
 
 .container {
   width: 100%;

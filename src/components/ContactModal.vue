@@ -1,5 +1,5 @@
 <template>
-    <div class="contact-modal">
+    <div class="contactModal">
 
         <transition name="fade">
             <div class="modal" v-show="showContactModal">

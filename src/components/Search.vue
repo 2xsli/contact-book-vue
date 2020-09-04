@@ -1,13 +1,11 @@
 <template>
-  <div id="search">
-    <div class="container">
+  <div class="search">
+    
+    <input class="search__input" 
+            type="text" 
+            placeholder="Search" 
+            v-model="searchLine" @keyup.enter="searchContact()">
 
-      <input class="search" 
-             type="text" 
-             placeholder="Search" 
-             v-model="searchLine" @keyup.enter="searchContact()">
-
-    </div>
   </div>
 </template>
 
@@ -32,7 +30,7 @@ export default {
 </script>
 
 <style>
-.search {
+.search__input {
   font-size: 16px;
   font-weight: 400;
   width: 100%;

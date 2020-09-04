@@ -1,6 +1,5 @@
 <template>
-    <div id="contacts">
-        <div class="container">
+    <div class="contacts">
             
             <div class="contacts-overflow">
                 <div class="contacts-wrapper" 
@@ -34,7 +33,6 @@
             
             <ContactModal />
         
-        </div>
     </div>
 </template>
 
@@ -93,7 +91,7 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 /* contacts block wit overflow */
 .contacts-overflow {
     overflow: hidden;

@@ -1,15 +1,15 @@
 <template>
-    <div id="profile">
-        <div class="container">
-            <div class="ur-profile">
+    <div class="profile">
+        
+        <div class="ur-profile">
 
-                <img class="profile__icon" 
-                     src="../assets/profile-icon.png">
+            <img class="profile__icon" 
+                 src="../assets/profile-icon.png">
                      
-                <p class="profile__text">Nikita Cherepanov</p>
+            <p class="profile__text">Nikita Cherepanov</p>
 
-            </div>
         </div>
+        
     </div>
 </template>
 
@@ -20,7 +20,7 @@ export default {
 </script>
 
 <style>
-#profile {
+.profile {
     margin: 30px 0;
 }
 
