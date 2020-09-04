@@ -10,7 +10,7 @@
                     <img class="contact__icon" 
                     src="../assets/profile-icon.png">
 
-                    <h1 class="contact__name">Andrew USA</h1>
+                    <h1 class="contact__name">Andrew</h1>
                 </div>
 
             </div>
@@ -41,7 +41,7 @@
             <!-- footer -->
             <div class="contact-footer">
 
-                <router-link :to="{name: 'ContactBook'}">
+                <router-link :to="{path: '/'}">
                     <button class="contact__btn">◀️</button>
                 </router-link>
 

@@ -15,12 +15,15 @@ let router = new Router({
         },
 
         {
-            path: '/Contact',
+            path: '/contact/:id',
             name: 'ContactInfo',
             component: ContactInfo,
             props: true
-        }
+        },
+
     ],
+// disable #
+    mode: 'history'
 })
 
 export default router;

@@ -6,7 +6,7 @@
                      v-for="(contact, index) in contacts" 
                      :key="index">
 
-                    <router-link :to="{name: 'ContactInfo'}">
+                    <router-link :to="{name: 'ContactInfo', params: { id: contact.id } }">
                         <div v-if="!contact.editing" 
                              class="contact__item-label">
                             {{  contact.title  }}
@@ -15,7 +15,7 @@
 
                     <div v-if="!contact.editing" 
                          class="contact__item-label">
-                        {{  contact.title  }}
+                        
                     </div>
                     <input v-else class="contact__item-edit" 
                            type="text" 
@@ -153,11 +153,10 @@ export default {
     transform: scale(1.3);
 }
 
-/* delete input[number] arrows */
-input::-webkit-outer-spin-button,
-input::-webkit-inner-spin-button {
-    /* display: none; <- Crashes Chrome on hover */
-    -webkit-appearance: none;
-    margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
+/* vue-router decoration deleted */
+
+a {
+    text-decoration: none;
 }
+
 </style>
