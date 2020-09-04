@@ -3,7 +3,7 @@
         
         <div class="contactItem-wrapp">
 
-            <!-- decompose on components -->
+            <!-- decompose on components | header -->
             <div class="contactItem-wrapp-add">
 
                 <div class="contactItem-info">
@@ -12,27 +12,44 @@
 
                     <h1 class="contact__name">Andrew USA</h1>
                 </div>
+
+            </div>
+            <!-- first one's end -->
+            <!-- body -->
+            <div class="contactItem-fields">
+
+                <div class="contactItem-wrapper">
+
+                    <div class="contactItem-wrapper-add">
+                        <p class="contact__field">Name: Andrew USA</p>
             
+                        <button class="contact__btn" 
+                                @click="editContact(contact)">
+                        🖊️</button>
+                    </div>
+                    
+                    <div class="contactItem-wrapper-add">
+                        <p class="contact__field">Phone: 1 800 111 222 333</p>
+            
+                        <button class="contact__btn" 
+                                @click="editContact(contact)">
+                        🖊️</button>
+                    </div>
+                </div>
+
+            </div>
+            <!-- footer -->
+            <div class="contact-footer">
+
+                <router-link :to="{name: 'ContactBook'}">
+                    <button class="contact__btn">◀️</button>
+                </router-link>
+
                 <button class="contact__btn" 
                                     @click="deleteContact(index)">
                 🗑️
                 </button>
-
             </div>
-            <!-- first one's end -->
-
-            <div>
-                <div>
-                    <div>
-                        Name: Andrew USA
-                    </div>
-                    
-                    <div>
-                        Phone: 1 800 111 222 333
-                    </div>
-                </div>
-            </div>
-        
         </div>
 
     </div>
@@ -89,8 +106,13 @@ export default {
 }
 
 .contactItem-wrapper {
+    border-bottom: 1px solid #34495E;
+}
+
+.contactItem-wrapper-add {
     display: flex;
     justify-content: space-between;
+    align-items: center;
     margin: 30px 15px;
 }
 
@@ -100,5 +122,9 @@ export default {
     color: #34495E;
 }
 
-
+.contact-footer {
+    display: flex;
+    justify-content: space-between;
+    margin: 30px 15px;
+}
 </style>
