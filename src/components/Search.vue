@@ -12,12 +12,9 @@
 </template>
 
 <script>
-import { mapState } from 'vuex'
 
 export default {
   name: 'Search',
-
-  computed: mapState(['contacts']),
 
   data() {
     return {
@@ -28,7 +25,6 @@ export default {
   methods: {
     searchContact() {
       console.log(this.searchLine);
-      this.contacts.filter(contact => contact.length > 4);
     }
   }
 }

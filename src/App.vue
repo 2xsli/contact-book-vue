@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <div class="container">
-      <h1 class="title">{{"Contacts: " + this.$store.contacts.length}}</h1>
+      <h1 class="title">{{"Contacts: " + contacts.length}}</h1>
       <Search />
       <Profile />
       <Contacts />
@@ -14,6 +14,8 @@ import Search from './components/Search.vue'
 import Profile from './components/Profile.vue'
 import Contacts from './components/Contacts.vue'
 
+import { mapState } from 'vuex'
+
 export default {
   name: 'App',
 
@@ -22,6 +24,8 @@ export default {
     Profile,
     Contacts,
   },
+
+  computed: mapState(['contacts']),
   
 }
 </script>
