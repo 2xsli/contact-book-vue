@@ -6,13 +6,14 @@ Vue.use(Vuex);
 const store = new Vuex.Store({
     state: {
         contacts: [
-            {id: 0, title: 'Andrew USA', phoneNumber: '1 800 111 222 333', editing: false},
-            {id: 1, title: 'Alise', phoneNumber: '8 888 666 52 52', editing: false},
-            {id: 2, title: 'Mario from Italy', phoneNumber: '1 20 20 40 40', editing: false},
-            {id: 3, title: 'Mr. Gambling', phoneNumber: '14 57 82', editing: false},
-            {id: 4, title: 'Taxi', phoneNumber: '555 222', editing: false},
-            {id: 5, title: 'Vladimir Cheboskari', phoneNumber: '8 808 892 13-88', editing: false},
-            {id: 6, title: 'Lina', phoneNumber: '8 900 123 32 10', editing: false},
+            {id: 0, title: 'sad', phoneNumber: '1 800 111 222 333', editingName: false, editingPhone: false},
+            {id: 1, title: '123', phoneNumber: '1 800 111 222 333', editingName: false, editingPhone: false},
+            {id: 2, title: 'n111', phoneNumber: '1 800 111 222 333', editingName: false, editingPhone: false},
+            {id: 3, title: 'lol', phoneNumber: '1 800 111 222 333', editingName: false, editingPhone: false},
+            {id: 4, title: 'kek', phoneNumber: '1 800 111 222 333', editingName: false, editingPhone: false},
+            {id: 5, title: 'shrek', phoneNumber: '1 800 111 222 333', editingName: false, editingPhone: false},
+            {id: 6, title: 'gh', phoneNumber: '1 800 111 222 333', editingName: false, editingPhone: false},
+            
         ],
     },
     

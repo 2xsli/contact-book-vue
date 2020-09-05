@@ -3,28 +3,23 @@
             
             <div class="contacts-overflow">
                 <div class="contacts-wrapper" 
-                     v-for="(contact, index) in contacts" 
-                     :key="index">
+                     v-for="(contact, id) in contacts" 
+                     :key="contact.id">
                     
                     <router-link :to="{name: 'ContactInfo', params: { id: contact.id } }">
-                        <div v-if="!contact.editing" 
+                        <div v-if="!contact.editingName" 
                              class="contact__item-label">
                             {{  contact.title  }}
                         </div>
-                    </router-link>
-                    
 
-                    <div v-if="!contact.editing" 
-                         class="contact__item-label">
-                        
-                    </div>
-                    <input v-else class="contact__item-edit" 
+                        <input v-else class="contact__item-edit" 
                            type="text" 
                            v-model="contact.title"
                            @blur="doneEdit(contact)" 
                            @keyup.enter="doneEdit(contact)" 
                            @keyup.esc="cancelEdit(contact)" 
                            v-focus>
+                    </router-link>
 
                     <div class="btn-wrapper">
                         <button class="contact__btn" 
@@ -32,7 +27,7 @@
                         🖊️</button>
 
                         <button class="contact__btn" 
-                                @click="deleteContact(index)">
+                                @click="deleteContact(id)">
                         🗑️</button>
                     </div>
 
@@ -72,14 +67,14 @@ export default {
     },
 
     methods: {
-        deleteContact(index) {
-            this.contacts.splice(index, 1);
+        deleteContact(id) {
+            this.contacts.splice(id, 1);
         },
 
 // editing functionality
         editContact(contact) {
             this.beforeEditCache = contact.title;
-            contact.editing = true;
+            contact.editingName = true;
         },
 
         doneEdit(contact) {
@@ -87,12 +82,12 @@ export default {
                 contact.title = this.beforeEditCache;
             } 
 
-            contact.editing = false;
+            contact.editingName = false;
         },
 
         cancelEdit(contact) {
             contact.title = this.beforeEditCache;
-            contact.editing = false;
+            contact.editingName = false;
         },
 
     }

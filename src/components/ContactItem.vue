@@ -21,18 +21,34 @@
                 <div class="contactItem-wrapper">
 
                     <div class="contactItem-wrapper-add">
-                        <p class="contact__field">{{"Name: " + contact.title }}</p>
+                        <p v-if="!contact.editingName" class="contact__field">Name: <span>{{ contact.title }}</span></p>
+
+                        <input v-else class="contact__item-edit" 
+                           type="text" 
+                           v-model="contact.title"
+                           @blur="doneEditName(contact)" 
+                           @keyup.enter="doneEditName(contact)" 
+                           @keyup.esc="cancelEditName(contact)" 
+                           v-focus>
             
                         <button class="contact__btn" 
-                                @click="editContact(contact)">
+                                @click="editName(contact)">
                         🖊️</button>
                     </div>
                     
                     <div class="contactItem-wrapper-add">
-                        <p class="contact__field">{{"Phone: " + contact.phoneNumber }}</p>
+                        <p v-if="!contact.editingPhone" class="contact__field">{{"Phone: " + contact.phoneNumber }}</p>
+
+                        <input v-else class="contact__item-edit" 
+                           type="text" 
+                           v-model="contact.phoneNumber"
+                           @blur="doneEditPhone(contact)" 
+                           @keyup.enter="doneEditPhone(contact)" 
+                           @keyup.esc="cancelEditPhone(contact)" 
+                           v-focus>
             
                         <button class="contact__btn" 
-                                @click="editContact(contact)">
+                                @click="editPhone(contact)">
                         🖊️</button>
                     </div>
                 </div>
@@ -46,7 +62,7 @@
                 </router-link>
 
                 <button class="contact__btn" 
-                                    @click="deleteContact(index)">
+                                    @click="deleteContact(id)">
                 🗑️
                 </button>
             </div>
@@ -65,7 +81,9 @@ export default {
 
     data() {
         return {
-            contact: null
+            contact: null,
+            beforeEditCacheName: '',
+            beforeEditCachePhone: '',
         }
     },
 
@@ -76,10 +94,55 @@ export default {
         }
     },
 
+    directives: {
+        focus: {
+            inserted(el) {
+                el.focus()
+            }
+        }
+    },
+
     methods: {
-        deleteContact(index) {
-            this.contacts.splice(index, 1);
+        deleteContact(id) {
+            this.contacts.splice(id, 1);
             this.$router.push({name: 'ContactBook'});
+        },
+
+        // editing functionality
+        editName(contact) {
+            this.beforeEditCacheName = contact.title;
+            contact.editingName = true;
+        },
+
+        doneEditName(contact) {
+            if (contact.title.trim() === '') {
+                contact.title = this.beforeEditCacheName;
+            } 
+
+            contact.editingName = false;
+        },
+
+        cancelEditName(contact) {
+            contact.title = this.beforeEditCacheName;
+            contact.editingName = false;
+        },
+        // editing phoneNumber
+        editPhone(contact) {
+            this.beforeEditCachePhone = contact.phoneNumber;
+            contact.editingPhone = true;
+        },
+
+        doneEditPhone(contact) {
+            if (contact.phoneNumber.trim() === '') {
+                contact.phoneNumber = this.beforeEditCachePhone;
+            } 
+
+            contact.editingPhone = false;
+        },
+
+        cancelEditPhone(contact) {
+            contact.phoneNumber = this.beforeEditCachePhone;
+            contact.editingPhone = false;
         },
     }
 
@@ -139,6 +202,14 @@ export default {
     font-size: 24px;
     font-weight: 400;
     color: #34495E;
+}
+
+.contact__item-edit {
+    font-size: 24px;
+    font-weight: 400;
+    color: #34495E;
+    border: none;
+    outline: none;
 }
 
 .contact-footer {

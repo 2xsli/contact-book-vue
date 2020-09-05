@@ -63,7 +63,6 @@ export default {
             showContactModal: false,
             contactTitle: '',
             contactNumber: '',
-            idContact: 7,
         }
     },
 
@@ -74,7 +73,8 @@ export default {
                     id: this.idContact,
                     title: this.contactTitle,
                     phoneNumber: this.contactNumber,
-                    editing: false
+                    editingName: false,
+                    editingPhone: false
                 });
             } 
 
