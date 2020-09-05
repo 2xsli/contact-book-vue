@@ -5,13 +5,14 @@
                 <div class="contacts-wrapper" 
                      v-for="(contact, index) in contacts" 
                      :key="index">
-
+                    
                     <router-link :to="{name: 'ContactInfo', params: { id: contact.id } }">
                         <div v-if="!contact.editing" 
                              class="contact__item-label">
                             {{  contact.title  }}
                         </div>
                     </router-link>
+                    
 
                     <div v-if="!contact.editing" 
                          class="contact__item-label">

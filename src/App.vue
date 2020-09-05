@@ -37,4 +37,5 @@ export default {
   color: #34495E;
   margin: 25px 0;
 }
+
 </style>

@@ -1,7 +1,7 @@
 <template>
     <div class="contactBook">
         <div class="container">
-            <h1 class="title">{{"Contacts: " + this.$store.contacts.length}}</h1>
+            <h1 class="title">{{"Contacts: " + this.$store.state.contacts.length}}</h1>
 
             <Search />
             <Profile />

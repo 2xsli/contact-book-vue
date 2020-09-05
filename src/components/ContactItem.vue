@@ -10,7 +10,7 @@
                     <img class="contact__icon" 
                     src="../assets/profile-icon.png">
 
-                    <h1 class="contact__name">Andrew</h1>
+                    <h1 class="contact__name">{{ contact.title }}</h1>
                 </div>
 
             </div>
@@ -21,7 +21,7 @@
                 <div class="contactItem-wrapper">
 
                     <div class="contactItem-wrapper-add">
-                        <p class="contact__field">Name: Andrew USA</p>
+                        <p class="contact__field">{{"Name: " + contact.title }}</p>
             
                         <button class="contact__btn" 
                                 @click="editContact(contact)">
@@ -29,7 +29,7 @@
                     </div>
                     
                     <div class="contactItem-wrapper-add">
-                        <p class="contact__field">Phone: 1 800 111 222 333</p>
+                        <p class="contact__field">{{"Phone: " + contact.phoneNumber }}</p>
             
                         <button class="contact__btn" 
                                 @click="editContact(contact)">
@@ -63,7 +63,19 @@ export default {
 
     computed: mapState(['contacts']),
 
-    
+    data() {
+        return {
+            contact: null
+        }
+    },
+
+    created() {
+        const contact = this.$store.state.contacts.find(contact => contact.id == this.$route.params.id)
+        if (contact) {
+            this.contact = contact
+        }
+    }
+
 }
 </script>
 
