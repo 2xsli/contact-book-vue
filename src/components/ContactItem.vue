@@ -74,6 +74,13 @@ export default {
         if (contact) {
             this.contact = contact
         }
+    },
+
+    methods: {
+        deleteContact(index) {
+            this.contacts.splice(index, 1);
+            this.$router.push({name: 'ContactBook'});
+        },
     }
 
 }
