@@ -62,7 +62,7 @@
                 </router-link>
 
                 <button class="contact__btn" 
-                                    @click="deleteContact(id)">
+                                    @click="deleteContact()">
                 🗑️
                 </button>
             </div>
@@ -77,7 +77,7 @@ import { mapState } from 'vuex'
 export default {
     name: 'ContactItem',
 
-    computed: mapState(['contacts'], ['idContact']),
+    computed: mapState(['contacts']),
 
     data() {
         return {
@@ -103,9 +103,8 @@ export default {
     },
 
     methods: {
-        deleteContact(id) {
-            this.contacts.splice(id, 1);
-            this.$router.push({name: 'ContactBook'});
+        deleteContact() {
+            
         },
 
         // editing functionality

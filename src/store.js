@@ -16,7 +16,7 @@ const store = new Vuex.Store({
             
         ],
 
-        idContact: 7,
+        
     },
     
     mutations: {

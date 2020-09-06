@@ -3,8 +3,8 @@
             
             <div class="contacts-overflow">
                 <div class="contacts-wrapper" 
-                     v-for="(contact, id) in contacts" 
-                     :key="id">
+                     v-for="(contact, index) in contacts" 
+                     :key="contact.id">
                     
                     <router-link :to="{name: 'ContactInfo', params: { id: contact.id } }">
                         <div v-if="!contact.editingName" 
@@ -27,7 +27,7 @@
                         🖊️</button>
 
                         <button class="contact__btn" 
-                                @click="deleteContact(id)">
+                                @click="deleteContact(index)">
                         🗑️</button>
                     </div>
 
@@ -50,7 +50,7 @@ export default {
         ContactModal
     },
 
-    computed: mapState(['contacts'], ['idContact']),
+    computed: mapState(['contacts']),
 
     data() {
         return {
@@ -67,8 +67,8 @@ export default {
     },
 
     methods: {
-        deleteContact(id) {
-            this.contacts.splice(id, 1);
+        deleteContact(index) {
+            this.contacts.splice(index, 1);
         },
 
 // editing functionality
