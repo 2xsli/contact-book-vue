@@ -1,12 +1,11 @@
 <template>
     <div class="contactItem">
-        
         <div class="contactItem-wrapp">
 
-            <!-- decompose on components | header -->
-            <div class="contactItem-wrapp-add">
+            <!-- ContactItemHeader -->
+            <div class="contactItem-header">
 
-                <div class="contactItem-info">
+                <div class="contactItem-title">
                     <img class="contact__icon" 
                     src="../assets/profile-icon.png">
 
@@ -14,16 +13,17 @@
                 </div>
 
             </div>
-            <!-- first one's end -->
-            <!-- body -->
-            <div class="contactItem-fields">
+            
+            <!-- ContactItemBody -->
+            <div class="contactItem-body">
+                <div class="contactItem-body-wrapper">
 
-                <div class="contactItem-wrapper">
+                    <!-- Contact info item -->
 
                     <div class="contactItem-wrapper-add">
-                        <p v-if="!contact.editingName" class="contact__field">Name: <span>{{ contact.title }}</span></p>
+                        <p v-if="!contact.editingName" class="contact__info">Name: <span>{{ contact.title }}</span></p>
 
-                        <input v-else class="contact__item-edit" 
+                        <input v-else class="contact__info-edit" 
                            type="text" 
                            v-model="contact.title"
                            @blur="doneEditName(contact)" 
@@ -35,11 +35,13 @@
                                 @click="editName(contact)">
                         🖊️</button>
                     </div>
+
+                    <!-- Contact info item -->
                     
                     <div class="contactItem-wrapper-add">
-                        <p v-if="!contact.editingPhone" class="contact__field">{{"Phone: " + contact.phoneNumber }}</p>
+                        <p v-if="!contact.editingPhone" class="contact__info">{{"Phone: " + contact.phoneNumber }}</p>
 
-                        <input v-else class="contact__item-edit" 
+                        <input v-else class="contact__info-edit" 
                            type="text" 
                            v-model="contact.phoneNumber"
                            @blur="doneEditPhone(contact)" 
@@ -54,17 +56,14 @@
                 </div>
 
             </div>
-            <!-- footer -->
-            <div class="contact-footer">
+
+            <!-- ContactItemFooter -->
+            <div class="contactItem-footer">
 
                 <router-link :to="{path: '/'}">
                     <button class="contact__btn">◀️</button>
                 </router-link>
 
-                <button class="contact__btn" 
-                                    @click="deleteContact()">
-                🗑️
-                </button>
             </div>
         </div>
 
@@ -147,73 +146,3 @@ export default {
 
 }
 </script>
-
-<style scoped>
-
-.contactItem-wrapp-add {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    border-bottom: 1px solid #34495E;
-}
-
-.contactItem-info {
-    display: flex;
-    align-items: center;
-}
-
-.contact__icon {
-    padding-right: 20px;
-}
-
-.contact__name {
-    font-size: 36px;
-    font-weight: 700;
-    color: #34495E;
-    margin: 25px 0;
-}
-
-.contact__btn {
-    /* margin: 15px; */
-    background-color: #fff;
-    border: none;
-    outline: none;
-    cursor: pointer;
-    transform: scale(1.3);
-}
-
-.contactItem-fields {
-    margin: 30px 0;
-}
-
-.contactItem-wrapper {
-    border-bottom: 1px solid #34495E;
-}
-
-.contactItem-wrapper-add {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin: 30px 15px;
-}
-
-.contact__field {
-    font-size: 24px;
-    font-weight: 400;
-    color: #34495E;
-}
-
-.contact__item-edit {
-    font-size: 24px;
-    font-weight: 400;
-    color: #34495E;
-    border: none;
-    outline: none;
-}
-
-.contact-footer {
-    display: flex;
-    justify-content: space-between;
-    margin: 30px 15px;
-}
-</style>

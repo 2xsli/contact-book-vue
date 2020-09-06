@@ -1,13 +1,9 @@
 <template>
     <div class="profile">
-        
-        <div class="ur-profile">
-
+        <div class="profile-wrapper">
             <img class="profile__icon" 
                  src="../assets/profile-icon.png">
-                     
-            <p class="profile__text">Nikita Cherepanov</p>
-
+            <p class="profile__title">Nikita Cherepanov</p>
         </div>
         
     </div>
@@ -18,24 +14,3 @@ export default {
     name: 'Profile',
 }
 </script>
-
-<style>
-.profile {
-    margin: 30px 0;
-}
-
-.ur-profile {
-    display: flex;
-    align-items: center;
-}
-
-.profile__icon {
-    padding-right: 20px;
-}
-
-.profile__text {
-    font-size: 18px;
-    font-weight: 700;
-    color: #34495E;
-}
-</style>

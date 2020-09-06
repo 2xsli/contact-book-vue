@@ -1,0 +1,302 @@
+@import "./variables.scss";
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Open Sans', sans-serif;
+}
+
+.container {
+    width: 100%;
+    max-width: 550px;
+    margin: 0 auto;
+}
+
+.title {
+    font-size: $title;
+    font-weight: 700;
+    color: $main-color;
+    margin: 25px 0;
+}
+
+// Main component of contactBook page
+
+.contactBook {
+    width: 600px;
+    border: 3px solid $comp-color;
+    margin: 40px auto;
+}
+
+// Search component
+
+.search__input {
+    font-size: 16px;
+    font-weight: 400;
+    width: 100%;
+    padding: 13px 20px;
+    border: 1px solid $main-color;
+    outline: none;
+  }
+  
+.search__input::placeholder {
+    color: $main-color;
+}
+
+// Profile component
+
+.profile {
+    margin: 30px 0;
+}
+
+.profile-wrapper {
+    display: flex;
+    align-items: center;
+}
+
+.profile__icon {
+    padding-right: 20px;
+}
+
+.profile__title {
+    font-size: 18px;
+    font-weight: 700;
+    color: $main-color;
+}
+
+// Contacts
+
+// Contacts overflow
+
+.contacts-overflow {
+    overflow: hidden;
+    height: 450px;
+    overflow-y: auto;
+    width: 100%;
+    border-top: 1px solid $main-color;
+    border-bottom: 1px solid $main-color;
+}
+
+.contacts-wrapper {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.contact__item {
+    font-size: 24px;
+    font-weight: 400;
+    color: $main-color;
+    margin: 10px 0;
+    padding: 15px;
+    cursor: pointer;
+}
+
+.contact__btn {
+    margin: 15px;
+    background-color: #fff;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    transform: scale(1.3);
+}
+
+// Disable vue-router decoration for links
+
+a {
+    text-decoration: none;
+}
+
+// ContactModal
+
+.modal-wrapper {
+    position: absolute;
+    top: 142px;
+    right: 0;
+    left: 0;
+    z-index: 1000;
+    width: 680px;
+    height: 623px;
+    margin: 0 auto;
+    padding: 30px;
+    background-color: $main-color;
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.modal__title {
+    font-size: 24px;
+    font-weight: 700;
+    color: $comp-color;
+}
+
+.modal-close-btn {
+    background-color: $main-color;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    transform: scale(1.3);
+}
+
+.modal-body {
+    text-align: center;
+}
+
+.modal__icon {
+    margin-top: 30px;
+}
+
+.modal-body-wrapper {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.modal__input {
+    font-size: 18px;
+    font-weight: 400;
+    width: 600px;
+    margin: 30px 0 15px 0;
+    padding: 15px;
+    border: none;
+    outline: none;
+}
+
+.modal__input::placeholder {
+    color: $main-color;
+}
+
+.modal-footer {
+    text-align: center;
+}
+
+.modal-submit-btn {
+    font-size: 24px;
+    font-weight: 700;
+    color: #fff;
+    background-color: $comp-color;
+    margin-top: 30px;
+    padding: 30px;
+    border-radius: 40px;
+    border: none;
+    outline: none;
+    cursor: pointer;
+}
+
+// Open modal button
+
+.modal-open-wrapper {
+    margin: 30px 0;
+    display: flex;
+    justify-content: space-around;
+}
+
+.modal-open-btn {
+    padding: 15px;
+    background-color: $main-color;
+    border-radius: 30px;
+    border: none;
+    outline: none;
+    cursor: pointer;
+}
+
+// Animation for ContactModal
+
+.fade-enter-active, .fade-leave-active {
+    transition: opacity .5s;
+}
+  .fade-enter, .fade-leave-to /* .fade-leave-active до версии 2.1.8 */ {
+    opacity: 0;
+}
+
+// Disable input type=[number] arrows
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    /* display: none; <- Crashes Chrome on hover */
+    -webkit-appearance: none;
+    margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
+}
+
+// ContactInfo
+
+.contactInfo {
+    width: 600px;
+    border: 3px solid $comp-color;
+    margin: 40px auto;
+}
+
+// Contact Card with old HTML names
+
+// ContactItem-header
+
+.contactItem-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #34495E;
+}
+
+.contactItem-title {
+    display: flex;
+    align-items: center;
+}
+
+.contact__icon {
+    padding-right: 20px;
+}
+
+.contact__name {
+    font-size: 36px;
+    font-weight: 700;
+    color: #34495E;
+    margin: 25px 0;
+}
+
+// ContactItem-body
+
+.contactItem-body {
+    margin: 30px 0;
+}
+
+.contactItem-body-wrapper {
+    border-bottom: 1px solid #34495E;
+}
+
+.contactItem-wrapper-add {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 30px 15px;
+}
+
+.contact__info {
+    font-size: 24px;
+    font-weight: 400;
+    color: #34495E;
+}
+
+.contact__info-edit {
+    font-size: 24px;
+    font-weight: 400;
+    color: #34495E;
+    border: none;
+    outline: none;
+}
+
+// ContactItem-footer
+
+.contactItem-footer {
+    display: flex;
+    justify-content: space-between;
+    margin: 30px 15px;
+}
