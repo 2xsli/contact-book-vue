@@ -77,7 +77,7 @@ import { mapState } from 'vuex'
 export default {
     name: 'ContactItem',
 
-    computed: mapState(['contacts']),
+    computed: mapState(['contacts'], ['idContact']),
 
     data() {
         return {

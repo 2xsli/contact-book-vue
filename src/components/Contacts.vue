@@ -4,7 +4,7 @@
             <div class="contacts-overflow">
                 <div class="contacts-wrapper" 
                      v-for="(contact, id) in contacts" 
-                     :key="contact.id">
+                     :key="id">
                     
                     <router-link :to="{name: 'ContactInfo', params: { id: contact.id } }">
                         <div v-if="!contact.editingName" 
@@ -50,7 +50,7 @@ export default {
         ContactModal
     },
 
-    computed: mapState(['contacts']),
+    computed: mapState(['contacts'], ['idContact']),
 
     data() {
         return {

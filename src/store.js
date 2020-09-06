@@ -15,6 +15,8 @@ const store = new Vuex.Store({
             {id: 6, title: 'gh', phoneNumber: '1 800 111 222 333', editingName: false, editingPhone: false},
             
         ],
+
+        idContact: 7,
     },
     
     mutations: {

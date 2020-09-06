@@ -17,7 +17,7 @@ export default {
         ContactItem,
     },
 
-    computed: mapState(['contacts']),
+    computed: mapState(['contacts'], ['idContact']),
 }
 </script>
 

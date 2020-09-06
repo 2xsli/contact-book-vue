@@ -56,7 +56,7 @@ import { mapState } from 'vuex'
 export default {
     name: 'ContactModal',
 
-    computed: mapState(['contacts']),
+    computed: mapState(['contacts'], ['idContact']),
 
     data() {
         return {
@@ -70,17 +70,19 @@ export default {
         createContact() {
             if (this.contactTitle.trim() !== '' && this.contactNumber.trim() !== '') {
                 this.contacts.push({
-                    id: this.idContact,
+                    id: this.$store.state.idContact,
                     title: this.contactTitle,
                     phoneNumber: this.contactNumber,
                     editingName: false,
                     editingPhone: false
                 });
+
+                this.$store.state.idContact++;
             } 
 
+            // this.idContact++;
             this.contactTitle = '',
-            this.contactNumber = '',
-            this.idContact++
+            this.contactNumber = ''
             this.showContactModal = false;
         },
 
